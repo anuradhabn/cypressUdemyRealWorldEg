@@ -1,0 +1,32 @@
+{
+    "article": {
+        "id": 392456,
+        "slug": "New-Article-Title-2-378455",
+        "title": "New Article Title 2",
+        "description": "This is the description",
+        "body": "This is the body",
+        "createdAt": "2023-12-07T06:50:45.341Z",
+        "updatedAt": "2023-12-07T06:50:45.341Z",
+        "authorId": 378455,
+        "tagList": [],
+        "author": {
+            "username": "anuradhabn",
+            "bio": null,
+            "image": "https://api.realworld.io/images/smiley-cyrus.jpeg",
+            "following": false
+        },
+        "favoritedBy": [
+            {
+                "id": 378455,
+                "email": "anu.bengaluru@gmail.com",
+                "username": "anuradhabn",
+                "password": "$2a$10$EPs4Hs7J3EVXtgdRxZAjsuWSsRbZNWpl6ornhItspIvmESn1ohyUy",
+                "image": "https://api.realworld.io/images/smiley-cyrus.jpeg",
+                "bio": null,
+                "demo": false
+            }
+        ],
+        "favorited": true,
+        "favoritesCount": 1
+    }
+}

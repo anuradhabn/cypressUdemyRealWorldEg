@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Mocha Tests" time="20.718" tests="4" failures="0">
+  <testsuite name="Root Suite" timestamp="2024-01-08T12:30:47" tests="0" file="cypress\e2e\firstTest.spec.cy.js" time="0.000" failures="0">
+  </testsuite>
+  <testsuite name="Test with backend" timestamp="2024-01-08T12:30:47" tests="4" time="20.709" failures="0">
+    <testcase name="Test with backend Verify correct request &amp; response" time="8.620" classname="Verify correct request &amp; response">
+    </testcase>
+    <testcase name="Test with backend Verify Popular Tags are displayed - Mock Response1" time="3.375" classname="Verify Popular Tags are displayed - Mock Response1">
+    </testcase>
+    <testcase name="Test with backend Verify Global feed likes count" time="2.918" classname="Verify Global feed likes count">
+    </testcase>
+    <testcase name="Test with backend Delete a new article in global feed making use of API calls.. Postman &amp; token stuff" time="5.552" classname="Delete a new article in global feed making use of API calls.. Postman &amp; token stuff">
+    </testcase>
+  </testsuite>
+</testsuites>
