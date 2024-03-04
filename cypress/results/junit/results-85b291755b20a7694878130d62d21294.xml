@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Mocha Tests" time="24.746" tests="1" failures="0">
+  <testsuite name="Root Suite" timestamp="2024-02-29T11:37:30" tests="0" file="cypress\e2e\Test.spec.cy.js" time="0.000" failures="0">
+  </testsuite>
+  <testsuite name="Test with backend" timestamp="2024-02-29T11:37:30" tests="1" time="24.744" failures="0">
+    <testcase name="Test with backend Intercepting &amp; Modifying the request&amp;response(Verify correct request &amp; response)" time="6.889" classname="Intercepting &amp; Modifying the request&amp;response(Verify correct request &amp; response)">
+    </testcase>
+  </testsuite>
+</testsuites>

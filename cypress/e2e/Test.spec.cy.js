@@ -81,7 +81,7 @@ describe('Test with backend', () => {
     .and('contain','Hyderabad')
   })
 
-  it('Verify Global feed likes count', ()=> {
+  it('Verify Global feed likes count', {browser:'egde'},()=> {
 
     //Intercepting pages should always be declared first
     // cy.intercept('GET','https://api.realworld.io/api/articles?limit=10&offset=0',{fixture: 'globalFeedArticles.json'})

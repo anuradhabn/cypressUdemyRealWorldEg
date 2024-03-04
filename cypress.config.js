@@ -1,8 +1,11 @@
 const { defineConfig } = require("cypress")
 
 module.exports = defineConfig({
+  projectId: "yvnzq2",
   e2e: {
     baseUrl: 'https://angular.realworld.how/',
+    experimentalWebKitSupport: true,
+    
     //apiLoginURL: 'https://concentrix-intranet-pilot.vercel.app/login',
     // excludeSpecPattern :['**/1-getting-started','**/2-advanced-examples'],
     // experimentalSessionAndOrigin: true,
@@ -20,7 +23,7 @@ module.exports = defineConfig({
     reporter: 'cypress-multi-reporters',
     reporterOptions: {
       configFile: 'reporter-config.json',
-    },
+    },    
     //retries:2,
     retries: {
       runMode: 2,//headless

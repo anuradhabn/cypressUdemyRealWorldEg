@@ -38,7 +38,8 @@ describe('Test with backend', () => {
 
   // Below test was after learning about interception in Chapter 40
   //Before running the below test, no new Article should be present in the webside
-  it('Intercepting & Modifying the request&response(Verify correct request & response)', () => {
+  it('Intercepting Mock req/resp', () => {
+    //Intercepting & Modifying the request&response(Verify correct request & response)
     //Intercepting Request  :D 
     // cy.intercept('POST','**/articles',(interceptedReq)=>{
     //   interceptedReq.body.article.description = "This is intercepted description2"

@@ -1,0 +1,10 @@
+version: '3.7'
+services:
+  e2e:
+    image: cypress_compose
+    build:
+      context: . # root of the file
+      dockerfile: ./Dockerfile # corrected spelling of 'dockerfile'
+    volumes:
+      - ./dockerReports:/app/cypress/results # corrected volume syntax
+      - ./dockerReports:/app/mochawesome-report # corrected volume syntax

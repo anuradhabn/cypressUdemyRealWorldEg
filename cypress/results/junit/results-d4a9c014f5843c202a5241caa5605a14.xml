@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Mocha Tests" time="4.026" tests="1" failures="1">
+  <testsuite name="Root Suite" timestamp="2024-02-28T12:27:18" tests="0" file="cypress\e2e\Test.spec.cy.js" time="0.000" failures="0">
+  </testsuite>
+  <testsuite name="Test with backend" timestamp="2024-02-28T12:27:18" tests="1" time="4.019" failures="1">
+    <testcase name="Test with backend &quot;before each&quot; hook: Login to the app for &quot;Intercepting &amp; Modifying the request&amp;response(Verify correct request &amp; response)&quot;" time="0.954" classname="&quot;before each&quot; hook: Login to the app for &quot;Intercepting &amp; Modifying the request&amp;response(Verify correct request &amp; response)&quot;">
+      <failure message="`cy.request()` failed on:
+
+https://api.realworld.io/api/users/login
+
+The response we received from your web server was:
+
+  &gt; 503: Service Unavailable
+
+This was considered a failure because the status code was not `2xx` or `3xx`.
+
+If you do not want status codes to cause failures pass the option: `failOnStatusCode: false`
+
+-----------------------------------------------------------
+
+The request we sent was:
+
+Method: POST
+URL: https://api.realworld.io/api/users/login
+Headers: {
+  &quot;Connection&quot;: &quot;keep-alive&quot;,
+  &quot;user-agent&quot;: &quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/121.0.0.0 Safari/537.36&quot;,
+  &quot;accept&quot;: &quot;*/*&quot;,
+  &quot;accept-encoding&quot;: &quot;gzip, deflate&quot;,
+  &quot;content-type&quot;: &quot;application/json&quot;,
+  &quot;content-length&quot;: 72
+}
+Body: {&quot;user&quot;:{&quot;email&quot;:&quot;anu.bengaluru@gmail.com&quot;,&quot;password&quot;:&quot;Ganapathi2024!&quot;}}
+
+-----------------------------------------------------------
+
+The response we got was:
+
+Status: 503 - Service Unavailable
+Headers: {
+  &quot;date&quot;: &quot;Wed, 28 Feb 2024 12:27:21 GMT&quot;,
+  &quot;content-type&quot;: &quot;text/html; charset=utf-8&quot;,
+  &quot;transfer-encoding&quot;: &quot;chunked&quot;,
+  &quot;connection&quot;: &quot;keep-alive&quot;,
+  &quot;report-to&quot;: &quot;{\&quot;group\&quot;:\&quot;heroku-nel\&quot;,\&quot;max_age\&quot;:3600,\&quot;endpoints\&quot;:[{\&quot;url\&quot;:\&quot;https://nel.heroku.com/reports?ts=1709123241&amp;sid=c46efe9b-d3d2-4a0c-8c76-bfafa16c5add&amp;s=5T6jjGdeK2RjJ6v%2BkIMkFkDalZR33xorH1vBJE2mhwA%3D\&quot;}]}&quot;,
+  &quot;reporting-endpoints&quot;: &quot;heroku-nel=https://nel.heroku.com/reports?ts=1709123241&amp;sid=c46efe9b-d3d2-4a0c-8c76-bfafa16c5add&amp;s=5T6jjGdeK2RjJ6v%2BkIMkFkDalZR33xorH1vBJE2mhwA%3D&quot;,
+  &quot;nel&quot;: &quot;{\&quot;report_to\&quot;:\&quot;heroku-nel\&quot;,\&quot;max_age\&quot;:3600,\&quot;success_fraction\&quot;:0.005,\&quot;failure_fraction\&quot;:0.05,\&quot;response_headers\&quot;:[\&quot;Via\&quot;]}&quot;,
+  &quot;cache-control&quot;: &quot;no-cache, no-store&quot;,
+  &quot;cf-cache-status&quot;: &quot;DYNAMIC&quot;,
+  &quot;server&quot;: &quot;cloudflare&quot;,
+  &quot;cf-ray&quot;: &quot;85c8a9424aad662d-AMS&quot;,
+  &quot;alt-svc&quot;: &quot;h3=\&quot;:443\&quot;; ma=86400&quot;
+}
+Body: &lt;!DOCTYPE html&gt;
+	&lt;html&gt;
+	  &lt;head&gt;
+		&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+		&lt;meta charset=&quot;utf-8&quot;&gt;
+		&lt;title&gt;Application Error&lt;/title&gt;
+		&lt;style media=&quot;screen&quot;&gt;
+		  html,body,iframe {
+			margin: 0;
+			padding: 0;
+		  }
+		  html,body {
+			height: 100%;
+			overflow: hidden;
+		  }
+		  iframe {
+			width: 100%;
+			height: 100%;
+			border: 0;
+		  }
+		&lt;/style&gt;
+	  &lt;/head&gt;
+	  &lt;body&gt;
+		&lt;iframe src=&quot;//www.herokucdn.com/error-pages/application-error.html&quot;&gt;&lt;/iframe&gt;
+	  &lt;/body&gt;
+	&lt;/html&gt;
+
+
+https://on.cypress.io/request
+
+Because this error occurred during a `before each` hook we are skipping the remaining tests in the current suite: `Test with backend`" type="CypressError"><![CDATA[CypressError: `cy.request()` failed on:
+
+https://api.realworld.io/api/users/login
+
+The response we received from your web server was:
+
+  > 503: Service Unavailable
+
+This was considered a failure because the status code was not `2xx` or `3xx`.
+
+If you do not want status codes to cause failures pass the option: `failOnStatusCode: false`
+
+-----------------------------------------------------------
+
+The request we sent was:
+
+Method: POST
+URL: https://api.realworld.io/api/users/login
+Headers: {
+  "Connection": "keep-alive",
+  "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/121.0.0.0 Safari/537.36",
+  "accept": "*/*",
+  "accept-encoding": "gzip, deflate",
+  "content-type": "application/json",
+  "content-length": 72
+}
+Body: {"user":{"email":"anu.bengaluru@gmail.com","password":"Ganapathi2024!"}}
+
+-----------------------------------------------------------
+
+The response we got was:
+
+Status: 503 - Service Unavailable
+Headers: {
+  "date": "Wed, 28 Feb 2024 12:27:21 GMT",
+  "content-type": "text/html; charset=utf-8",
+  "transfer-encoding": "chunked",
+  "connection": "keep-alive",
+  "report-to": "{\"group\":\"heroku-nel\",\"max_age\":3600,\"endpoints\":[{\"url\":\"https://nel.heroku.com/reports?ts=1709123241&sid=c46efe9b-d3d2-4a0c-8c76-bfafa16c5add&s=5T6jjGdeK2RjJ6v%2BkIMkFkDalZR33xorH1vBJE2mhwA%3D\"}]}",
+  "reporting-endpoints": "heroku-nel=https://nel.heroku.com/reports?ts=1709123241&sid=c46efe9b-d3d2-4a0c-8c76-bfafa16c5add&s=5T6jjGdeK2RjJ6v%2BkIMkFkDalZR33xorH1vBJE2mhwA%3D",
+  "nel": "{\"report_to\":\"heroku-nel\",\"max_age\":3600,\"success_fraction\":0.005,\"failure_fraction\":0.05,\"response_headers\":[\"Via\"]}",
+  "cache-control": "no-cache, no-store",
+  "cf-cache-status": "DYNAMIC",
+  "server": "cloudflare",
+  "cf-ray": "85c8a9424aad662d-AMS",
+  "alt-svc": "h3=\":443\"; ma=86400"
+}
+Body: <!DOCTYPE html>
+	<html>
+	  <head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta charset="utf-8">
+		<title>Application Error</title>
+		<style media="screen">
+		  html,body,iframe {
+			margin: 0;
+			padding: 0;
+		  }
+		  html,body {
+			height: 100%;
+			overflow: hidden;
+		  }
+		  iframe {
+			width: 100%;
+			height: 100%;
+			border: 0;
+		  }
+		</style>
+	  </head>
+	  <body>
+		<iframe src="//www.herokucdn.com/error-pages/application-error.html"></iframe>
+	  </body>
+	</html>
+
+
+https://on.cypress.io/request
+
+Because this error occurred during a `before each` hook we are skipping the remaining tests in the current suite: `Test with backend`
+    at <unknown> (https://angular.realworld.how/__cypress/runner/cypress_runner.js:133450:72)
+    at tryCatcher (https://angular.realworld.how/__cypress/runner/cypress_runner.js:1807:23)
+    at Promise._settlePromiseFromHandler (https://angular.realworld.how/__cypress/runner/cypress_runner.js:1519:31)
+    at Promise._settlePromise (https://angular.realworld.how/__cypress/runner/cypress_runner.js:1576:18)
+    at Promise._settlePromise0 (https://angular.realworld.how/__cypress/runner/cypress_runner.js:1621:10)
+    at Promise._settlePromises (https://angular.realworld.how/__cypress/runner/cypress_runner.js:1701:18)
+    at _drainQueueStep (https://angular.realworld.how/__cypress/runner/cypress_runner.js:2407:12)
+    at _drainQueue (https://angular.realworld.how/__cypress/runner/cypress_runner.js:2400:9)
+    at Async._drainQueues (https://angular.realworld.how/__cypress/runner/cypress_runner.js:2416:5)
+    at Async.drainQueues (https://angular.realworld.how/__cypress/runner/cypress_runner.js:2286:14)
+From Your Spec Code:
+    at Context.eval (webpack://cypress_cu/./cypress/support/commands.js:56:7)]]></failure>
+    </testcase>
+  </testsuite>
+</testsuites>

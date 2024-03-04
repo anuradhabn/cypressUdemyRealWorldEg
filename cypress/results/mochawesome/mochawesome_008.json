@@ -1,0 +1,110 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2024-02-28T06:58:52.318Z",
+    "end": "2024-02-28T06:58:56.477Z",
+    "duration": 4159,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "53994eed-b403-481e-88fc-73dc812daf67",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Test.spec.cy.js",
+      "file": "cypress\\e2e\\Test.spec.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "b12a602b-1380-43d9-9dd8-d32dc9f3a7fe",
+          "title": "Test with backend",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Intercepting & Modifying the request&response(Verify correct request & response)",
+              "fullTitle": "Test with backend Intercepting & Modifying the request&response(Verify correct request & response)",
+              "timedOut": null,
+              "duration": 1084,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "// cy.intercept('POST','**/articles',(interceptedReq)=>{\n//   interceptedReq.body.article.description = \"This is intercepted description2\"\n// }).as('postArticles')\ncy.intercept('POST', '**/articles', actualReq => {\n  //reply is a method of Cypress sorta representing response\n  actualReq.reply(res => {\n    //actually validating the correct value in the below line\n    expect(res.body.article.description).to.equal(\"This is the description\");\n    //then later on replacing it with intercepted response\n    res.body.article.description = \"This is intercepted description2\";\n  });\n}).as('postArticles');\ncy.get('[routerlink=\"/editor\"]').click();\ncy.get('[placeholder=\"Article Title\"]').type(\"New Article Title\");\ncy.get('[formcontrolname=\"description\"]').type(\"This is the description\");\n//although we have a line above for \"This is the desciption\", since we are now intercepting the call before it\n//gets to this point, we are even asserting \"This is intercepted description2\"\ncy.get('[formcontrolname=\"body\"]').type(\"This is the body\");\ncy.contains('Publish Article ').click();\ncy.wait(1500);\ncy.wait('@postArticles').then(xhr => {\n  console.log(xhr);\n  //Assertion on the Reponse elements\n  expect(xhr.response.statusCode).to.be.equal(201);\n  expect(xhr.request.body.article.body).to.equal('This is the body');\n  expect(xhr.response.body.article.description).to.equal(\"This is intercepted description2\");\n});",
+              "err": {
+                "message": "CypressError: `cy.request()` failed on:\n\nhttps://api.realworld.io/api/users/login\n\nThe response we received from your web server was:\n\n  > 503: Service Unavailable\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: POST\nURL: https://api.realworld.io/api/users/login\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"user-agent\": \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.4 Safari/605.1.15\",\n  \"accept\": \"*/*\",\n  \"accept-encoding\": \"gzip, deflate\",\n  \"content-type\": \"application/json\",\n  \"content-length\": 72\n}\nBody: {\"user\":{\"email\":\"anu.bengaluru@gmail.com\",\"password\":\"Ganapathi2024!\"}}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 503 - Service Unavailable\nHeaders: {\n  \"date\": \"Wed, 28 Feb 2024 06:58:55 GMT\",\n  \"content-type\": \"text/html; charset=utf-8\",\n  \"transfer-encoding\": \"chunked\",\n  \"connection\": \"keep-alive\",\n  \"report-to\": \"{\\\"group\\\":\\\"heroku-nel\\\",\\\"max_age\\\":3600,\\\"endpoints\\\":[{\\\"url\\\":\\\"https://nel.heroku.com/reports?ts=1709103535&sid=c46efe9b-d3d2-4a0c-8c76-bfafa16c5add&s=hgaTYFpOeiVEeIdj6NFERMT4dBdBllMN6nNtUqi%2FLUQ%3D\\\"}]}\",\n  \"reporting-endpoints\": \"heroku-nel=https://nel.heroku.com/reports?ts=1709103535&sid=c46efe9b-d3d2-4a0c-8c76-bfafa16c5add&s=hgaTYFpOeiVEeIdj6NFERMT4dBdBllMN6nNtUqi%2FLUQ%3D\",\n  \"nel\": \"{\\\"report_to\\\":\\\"heroku-nel\\\",\\\"max_age\\\":3600,\\\"success_fraction\\\":0.005,\\\"failure_fraction\\\":0.05,\\\"response_headers\\\":[\\\"Via\\\"]}\",\n  \"cache-control\": \"no-cache, no-store\",\n  \"cf-cache-status\": \"DYNAMIC\",\n  \"server\": \"cloudflare\",\n  \"cf-ray\": \"85c6c82a4d3f7015-CDG\",\n  \"alt-svc\": \"h3=\\\":443\\\"; ma=86400\"\n}\nBody: <!DOCTYPE html>\n\t<html>\n\t  <head>\n\t\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n\t\t<meta charset=\"utf-8\">\n\t\t<title>Application Error</title>\n\t\t<style media=\"screen\">\n\t\t  html,body,iframe {\n\t\t\tmargin: 0;\n\t\t\tpadding: 0;\n\t\t  }\n\t\t  html,body {\n\t\t\theight: 100%;\n\t\t\toverflow: hidden;\n\t\t  }\n\t\t  iframe {\n\t\t\twidth: 100%;\n\t\t\theight: 100%;\n\t\t\tborder: 0;\n\t\t  }\n\t\t</style>\n\t  </head>\n\t  <body>\n\t\t<iframe src=\"//www.herokucdn.com/error-pages/application-error.html\"></iframe>\n\t  </body>\n\t</html>\n\n\nhttps://on.cypress.io/request\n\nBecause this error occurred during a `before each` hook we are skipping the remaining tests in the current suite: `Test with backend`",
+                "estack": "CypressError: `cy.request()` failed on:\n\nhttps://api.realworld.io/api/users/login\n\nThe response we received from your web server was:\n\n  > 503: Service Unavailable\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: POST\nURL: https://api.realworld.io/api/users/login\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"user-agent\": \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.4 Safari/605.1.15\",\n  \"accept\": \"*/*\",\n  \"accept-encoding\": \"gzip, deflate\",\n  \"content-type\": \"application/json\",\n  \"content-length\": 72\n}\nBody: {\"user\":{\"email\":\"anu.bengaluru@gmail.com\",\"password\":\"Ganapathi2024!\"}}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 503 - Service Unavailable\nHeaders: {\n  \"date\": \"Wed, 28 Feb 2024 06:58:55 GMT\",\n  \"content-type\": \"text/html; charset=utf-8\",\n  \"transfer-encoding\": \"chunked\",\n  \"connection\": \"keep-alive\",\n  \"report-to\": \"{\\\"group\\\":\\\"heroku-nel\\\",\\\"max_age\\\":3600,\\\"endpoints\\\":[{\\\"url\\\":\\\"https://nel.heroku.com/reports?ts=1709103535&sid=c46efe9b-d3d2-4a0c-8c76-bfafa16c5add&s=hgaTYFpOeiVEeIdj6NFERMT4dBdBllMN6nNtUqi%2FLUQ%3D\\\"}]}\",\n  \"reporting-endpoints\": \"heroku-nel=https://nel.heroku.com/reports?ts=1709103535&sid=c46efe9b-d3d2-4a0c-8c76-bfafa16c5add&s=hgaTYFpOeiVEeIdj6NFERMT4dBdBllMN6nNtUqi%2FLUQ%3D\",\n  \"nel\": \"{\\\"report_to\\\":\\\"heroku-nel\\\",\\\"max_age\\\":3600,\\\"success_fraction\\\":0.005,\\\"failure_fraction\\\":0.05,\\\"response_headers\\\":[\\\"Via\\\"]}\",\n  \"cache-control\": \"no-cache, no-store\",\n  \"cf-cache-status\": \"DYNAMIC\",\n  \"server\": \"cloudflare\",\n  \"cf-ray\": \"85c6c82a4d3f7015-CDG\",\n  \"alt-svc\": \"h3=\\\":443\\\"; ma=86400\"\n}\nBody: <!DOCTYPE html>\n\t<html>\n\t  <head>\n\t\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n\t\t<meta charset=\"utf-8\">\n\t\t<title>Application Error</title>\n\t\t<style media=\"screen\">\n\t\t  html,body,iframe {\n\t\t\tmargin: 0;\n\t\t\tpadding: 0;\n\t\t  }\n\t\t  html,body {\n\t\t\theight: 100%;\n\t\t\toverflow: hidden;\n\t\t  }\n\t\t  iframe {\n\t\t\twidth: 100%;\n\t\t\theight: 100%;\n\t\t\tborder: 0;\n\t\t  }\n\t\t</style>\n\t  </head>\n\t  <body>\n\t\t<iframe src=\"//www.herokucdn.com/error-pages/application-error.html\"></iframe>\n\t  </body>\n\t</html>\n\n\nhttps://on.cypress.io/request\n\nBecause this error occurred during a `before each` hook we are skipping the remaining tests in the current suite: `Test with backend`\nat <unknown> (https://angular.realworld.how/__cypress/runner/cypress_runner.js:133450:86)\nat tryCatcher (https://angular.realworld.how/__cypress/runner/cypress_runner.js:1807:28)\nat <unknown> (https://angular.realworld.how/__cypress/runner/cypress_runner.js:1519:35)\nat <unknown> (https://angular.realworld.how/__cypress/runner/cypress_runner.js:1576:43)\nat <unknown> (https://angular.realworld.how/__cypress/runner/cypress_runner.js:1621:24)\nat <unknown> (https://angular.realworld.how/__cypress/runner/cypress_runner.js:1701:33)\nat _drainQueueStep (https://angular.realworld.how/__cypress/runner/cypress_runner.js:2407:27)\nat _drainQueue (https://angular.realworld.how/__cypress/runner/cypress_runner.js:2400:24)\nat <unknown> (https://angular.realworld.how/__cypress/runner/cypress_runner.js:2416:16)\nat <unknown> (https://angular.realworld.how/__cypress/runner/cypress_runner.js:2286:26)\nFrom Your Spec Code:\n    at  (https://angular.realworld.how/__cypress/runner/cypress_runner.js:138765:114)\n    at  (https://angular.realworld.how/__cypress/tests:66:13)\n    at  (https://angular.realworld.how/__cypress/runner/cypress_runner.js:144614:39)\n    at tryCatcher (https://angular.realworld.how/__cypress/runner/cypress_runner.js:1807:28)\n    at  (https://angular.realworld.how/__cypress/runner/cypress_runner.js:1519:35)\n    at  (https://angular.realworld.how/__cypress/runner/cypress_runner.js:1576:43)\n    at  (https://angular.realworld.how/__cypress/runner/cypress_runner.js:1613:24)\n    at _drainQueueStep (https://angular.realworld.how/__cypress/runner/cypress_runner.js:2411:16)\n    at _drainQueue (https://angular.realworld.how/__cypress/runner/cypress_runner.js:2400:24)\n    at  (https://angular.realworld.how/__cypress/runner/cypress_runner.js:2416:16)\n    at  (https://angular.realworld.how/__cypress/runner/cypress_runner.js:2286:26)",
+                "diff": null
+              },
+              "uuid": "2d43176b-e4e5-4a45-9616-4850db5dc6ed",
+              "parentUUID": "b12a602b-1380-43d9-9dd8-d32dc9f3a7fe",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "2d43176b-e4e5-4a45-9616-4850db5dc6ed"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 1084,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "id": "default",
+        "reportDir": "cypress/results/mochawesome",
+        "overwrite": "false",
+        "html": "false",
+        "json": "true"
+      },
+      "version": "6.2.0"
+    }
+  }
+}
